@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'my-store';
+  name = 'Nicolas';
+  age=21;
+  image= 'https://www.unir.net/wp-content/uploads/2020/07/mba-tech.jpg';
+
 }
