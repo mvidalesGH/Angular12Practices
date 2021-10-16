@@ -1,27 +1,38 @@
-<h1>Propiedades !!!!!</h1>
-<button [disabled]='btnDisabled'>Enviar</button>
-<br>
-<input type="text" [value]="name">
-<br>
-<progress max="100" [value]="age"></progress>
-<br>
-<img [src]="image" width="100">
+<ul>
+    <li>
+        <h1>Property Binding</h1>
+        <h1>Propiedades !!!!!</h1>
+        <button [disabled]='btnDisabled'>Enviar</button>
+        <br>
+        <input type="text" [value]="name">
+        <br>
+        <progress max="100" [value]="age"></progress>
+        <br>
+        <img [src]="imgWorldProperties.src" [width]="imgWorldProperties.width">
+        <br>
+        <input type="text" [value]="person.name">
+        <br>
+        <progress max="100" [value]="person.age"></progress>
+        <br>
+        <img [src]="imgAvatarProperties.src" [width]="imgAvatarProperties.width">
+        <br>
 
-<br>
-<input type="text" [value]="person.name">
-<br>
-<progress max="100" [value]="person.age"></progress>
-<br>
-<img [src]="person.avatar" width="100">
-<br>
+        <hr />
 
-<hr />
-<h1>Hola Mundo !!!</h1>
+    </li>
+    <li>
+        <h1>String Interpolation</h1>
+        <h2>{{'Hola Mundo !!!'.repeat(5)}}</h2>
 
-<h2>{{'Hola Mundo !!!'.repeat(5)}}</h2>
+        <h2>3 + 3 = {{ 3 + 3 }}</h2>
 
-<h2>3 + 3 = {{ 3 + 3 }}</h2>
+        <h2>Hola soy {{name}} y tengo {{age}} años</h2>
+        <img src={{image}} width="100" />
+        <hr />
 
-<h2>Hola soy {{name}} y tengo {{age}} años</h2>
+        <h2>Hola soy {{person.name}} y tengo {{person.age} años</h2>
+        <img src={{person.avatar}} width="100" />
+        <hr />
+    </li>
 
-<img src={{image}} />
+</ul>

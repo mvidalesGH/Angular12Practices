@@ -1,8 +1,7 @@
 const usernane:string  = 'nicobbytes';
 
 const sum = (a: number, b:number) => {
-  return a+b;
-};
+  return a+b
 
 sum(1,3);
 
@@ -24,5 +23,5 @@ class Persona {
 
 const nico = new Persona(10,'Nicolas');
 
-
+}
 
