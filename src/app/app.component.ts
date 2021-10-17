@@ -47,6 +47,7 @@ class imageProperties
 })
 
 export class AppComponent implements OnInit {
+  title: any;
 
 
   constructor() { }
@@ -65,7 +66,7 @@ export class AppComponent implements OnInit {
             category: 'Deportes',
           },
           {
-            name: 'Colleción de albumnes',
+            name: 'Colleción de albums',
             price: 34,
             image: './assets/img/album.jpg',
             category: 'Musica',
