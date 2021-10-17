@@ -1,8 +1,7 @@
-export interface Product{
+export interface IProduct{
 
   name:string,
   price:number;
   image:string;
-  category?:string;
-
-}
+  category?:string
+};

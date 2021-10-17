@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './models/product.model';
+import { IProduct } from './models/product.model';
 
 
 const imageAvatarProperties = {
@@ -52,6 +52,43 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.products=    [
+      {
+        name: 'El mejor juguete',
+        price: 565,
+        image: './assets/img/toy.jpg',
+        category: 'all'},
+          {
+            name: 'Bicicleta casi nueva',
+            price: 356,
+            image: './assets/img/bike.jpg',
+            category: 'Deportes',
+          },
+          {
+            name: 'Colleción de albumnes',
+            price: 34,
+            image: './assets/img/album.jpg',
+            category: 'Musica',
+          },
+          {
+            name: 'Mis libros',
+            price: 23,
+            image: './assets/img/books.jpg'
+          },
+          {
+            name: 'Casa para perro',
+            price: 34,
+            image: './assets/img/house.jpg',
+            category: 'Mascotas'
+          },
+          {
+            name: 'Gafas',
+            price: 3434,
+            image: './assets/img/glasses.jpg',
+            category: 'Moda'
+          }
+        ];
+
 
   }
 private tempImageProperties:imageProperties = new imageProperties();
@@ -72,45 +109,7 @@ private tempImageProperties:imageProperties = new imageProperties();
     age : 85,
     avatar: imageAvatarProperties.src
   };
-
-  products :Product[]= [
-    {
-      name: 'El mejor juguete',
-      price: 565,
-      image: './assets/img/toy.jpg',
-      category: 'all',
-    },
-    {
-      name: 'Bicicleta casi nueva',
-      price: 356,
-      image: './assets/img/bike.jpg',
-      category: 'Deportes',
-    },
-    {
-      name: 'Colleción de albumnes',
-      price: 34,
-      image: './assets/img/album.jpg',
-      category: 'Musica',
-    },
-    {
-      name: 'Mis libros',
-      price: 23,
-      image: './assets/img/books.jpg'
-    },
-    {
-      name: 'Casa para perro',
-      price: 34,
-      image: './assets/img/house.jpg',
-      category: 'Mascotas'
-    },
-    {
-      name: 'Gafas',
-      price: 3434,
-      image: './assets/img/glasses.jpg',
-      category: 'Moda'
-    }
-  ]
-
+  products :IProduct[] | undefined;
   namePersons:string[] = ['Mario', 'Jose','Ana','Felipe','Sandy']
   ScrollTop=0;
 
