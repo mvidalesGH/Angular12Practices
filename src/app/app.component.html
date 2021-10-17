@@ -1,18 +1,95 @@
 <ul>
     <li>
+        <h1>*ngFor</h1>
+        <button (click)="agregaNombre()">Add Name</button>
+        <br><br> Nuevo Nombre :
+        <input type="text" #inputNewName=ngModel required [(ngModel)]="newName">
+        <p *ngIf="!inputNewName.valid">
+            El nombre es requerido !!!
+        </p>
+        <br><br>
+        <p *ngIf="namePersons.length===0">
+            La lista esta Vacía!!!!
+        </p>
+        <ul>
+            <li *ngFor="let name of namePersons;index as i">
+                {{ name }} posición {{ i }} <button (click)="eliminarNombre(i)">Delete Name</button>
+            </li>
+        </ul>
+
+    </li>
+    <li>
+        <h1>*ngIf</h1>
+        <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
+        <input type="number" #ageInput="ngModel" required min="10" max="18" [(ngModel)]="person.age">
+        <p *ngIf="!nameInput.valid">
+            El nombre es requerido !!!
+        </p>
+        <p *ngIf="!ageInput.valid;">
+            La edad es es requerido !!!
+        </p>
+        <p *ngIf="person.name==='mario'; else otronOmbre">
+            Hola soy Mario !!!
+        </p>
+        <ng-template #otronOmbre>
+            Hola, No soy Mario !!!
+        </ng-template>
+        <br><br>
+        <hr>
+    </li>
+    <li>
+        <h1>NgModel</h1>
+        <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
+        <p> Name= {{ person.name }}</p>
+        <p> Valid= {{ nameInput.valid }}</p>
+        <br>
+        <input type="number" #ageInput="ngModel" required min="10" max="18" [(ngModel)]="person.age">
+        <p> Name= {{ person.age }}</p>
+        <p> Valid= {{ ageInput.valid }}</p>
+
+        <hr>
+    </li>
+    <li>
+        <h1>Others Events</h1>
+        <div class="box" (scroll)="onScroll($event)">
+            Lorem ipsum dolor sit amet consectetur adipiscing, elit vitae porttitor ultricies facilisi natoque, vehicula lacinia potenti lacus curabitur. Sed habitasse nascetur nulla facilisi vel lectus, aenean diam phasellus potenti nunc vitae, purus suscipit et
+            parturient ultrices. Sociis fermentum dis molestie auctor dictumst ac montes, himenaeos viverra fusce convallis nostra.
+        </div>
+        Posición del Scroll = {{ ScrollTop }}
+        <br>
+        <br><br>
+        <input type="text" value="{{ person.name }}" (keyup)="onKeyUp($event)"> Nombre = {{ person.name }}
+        <br>
+        <hr>
+
+    </li>
+
+    <li>
+        <h1>Event Handling</h1>
+        <button type="button" (click)="Enviar()" [disabled]="btnEnviarProperties.disabled">{{btnEnviarProperties.text}}</button>
+        <button type="button" (click)="Activar()">{{btnActivarProperties.text}}</button>
+
+        <br>
+        <button type="button" (click)="increaseAge()">{{btnIncrementarEdadProperties.text}}</button>
+        <h2>Edad = {{person.age}}</h2>
+
+        <progress max="100" value="{{person.age}}"></progress>
+        <hr />
+    </li>
+    <li>
         <h1>Property Binding</h1>
         <h1>Propiedades !!!!!</h1>
         <button [disabled]='btnDisabled'>Enviar</button>
         <br>
         <input type="text" [value]="name">
         <br>
-        <progress max="100" [value]="age"></progress>
+        <progress max="100" [value]="imgWorldProperties.uploadPercentage"></progress>
         <br>
         <img [src]="imgWorldProperties.src" [width]="imgWorldProperties.width">
         <br>
         <input type="text" [value]="person.name">
         <br>
-        <progress max="100" [value]="person.age"></progress>
+        <progress max="100" [value]="imgAvatarProperties.uploadPercentage"></progress>
         <br>
         <img [src]="imgAvatarProperties.src" [width]="imgAvatarProperties.width">
         <br>
