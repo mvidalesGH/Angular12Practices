@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Product } from './models/product.model';
 
 
 const imageAvatarProperties = {
@@ -27,7 +27,16 @@ const btnActivarProperties = {
   disabled: false,
   text: "Activar",
   Activar: function(){ alert('OK');}
+}
 
+class imageProperties
+{
+  constructor(){
+    this.width=250;
+    this.height=250;
+  }
+  width:number;
+  height:number;
 
 }
 
@@ -43,8 +52,9 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+private tempImageProperties:imageProperties = new imageProperties();
 
   name = 'Nicolas';
   newName = 'Mario';
@@ -53,6 +63,7 @@ export class AppComponent implements OnInit {
   btnDisabled=true;
   imgAvatarProperties = imageAvatarProperties;
   imgWorldProperties = imageWorldProperties;
+  productsImageProperties =this.tempImageProperties;
   btnEnviarProperties = btnEnviarProperties
   btnActivarProperties = btnActivarProperties;
   btnIncrementarEdadProperties = btnIncrementarEdadProperties;
@@ -61,6 +72,45 @@ export class AppComponent implements OnInit {
     age : 85,
     avatar: imageAvatarProperties.src
   };
+
+  products :Product[]= [
+    {
+      name: 'El mejor juguete',
+      price: 565,
+      image: './assets/img/toy.jpg',
+      category: 'all',
+    },
+    {
+      name: 'Bicicleta casi nueva',
+      price: 356,
+      image: './assets/img/bike.jpg',
+      category: 'Deportes',
+    },
+    {
+      name: 'Colleción de albumnes',
+      price: 34,
+      image: './assets/img/album.jpg',
+      category: 'Musica',
+    },
+    {
+      name: 'Mis libros',
+      price: 23,
+      image: './assets/img/books.jpg'
+    },
+    {
+      name: 'Casa para perro',
+      price: 34,
+      image: './assets/img/house.jpg',
+      category: 'Mascotas'
+    },
+    {
+      name: 'Gafas',
+      price: 3434,
+      image: './assets/img/glasses.jpg',
+      category: 'Moda'
+    }
+  ]
+
   namePersons:string[] = ['Mario', 'Jose','Ana','Felipe','Sandy']
   ScrollTop=0;
 

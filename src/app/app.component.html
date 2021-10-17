@@ -1,5 +1,25 @@
 <ul>
     <li>
+        <h1>*ngFor Objets</h1>
+        <div>
+            <div *ngFor="let product of products">
+                <div class="row">
+                    <div class="col-4">
+                        <img [src]="product.image" [alt]="product.name" [width]="productsImageProperties.width" [height]="productsImageProperties.height">
+                    </div>
+                    <div class="col-4">
+                        {{ product.name }}
+                    </div>
+                    <div class="col-2">
+                        {{ product.price }}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </li>
+    <li>
         <h1>*ngFor</h1>
         <button (click)="agregaNombre()">Add Name</button>
         <br><br> Nuevo Nombre :
