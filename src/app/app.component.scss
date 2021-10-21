@@ -79,3 +79,30 @@
         font-size: large !important;
     }
 }
+
+.message-Error {
+    background-color: red;
+    color: white;
+    opacity: 0;
+    transition: all linear .5s;
+    &.invalid {
+        opacity: 1;
+    }
+}
+
+.line-error {
+    height: 10;
+    border-bottom: 10px solid;
+    &.invalid {
+        border-color: red;
+    }
+    &.valid {
+        border-color: green;
+    }
+    ;
+}
+
+.twoColumns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

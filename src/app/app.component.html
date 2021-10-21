@@ -1,5 +1,84 @@
-<!-- <ul> -->
-<!-- <li>
+<ul>
+    <li>
+        <h1>Formulario</h1>
+        <form (ngSubmit)="onRegister($event)" #myform="ngForm">
+            <div class=input-group>
+                <label for="name">Nombre</label>
+                <input type="text" #registername="ngModel" required name="name" id="name" [(ngModel)]="register.name">
+                <p>Mensajes de Error</p>
+            </div>
+            <div class=input-group>
+                <label for="email">Email</label>
+                <input type="email" #registeremail="ngModel" name="email" id="email" required [(ngModel)]="register.email">
+                <p>Mensajes de Error</p>
+            </div>
+            <div class=input-group>
+                <label for="password">Password</label>
+                <input type="password" #registerpassword="ngModel" name="password" id="password" required [(ngModel)]="register.password">
+                <p>Mensajes de Error</p>
+            </div>
+
+            <button type="submit" [disabled]="myform.invalid">Registrar</button>
+        </form>
+        <br><br>
+        <hr>
+    </li>
+
+    <li>
+        <h1>NgClass</h1>
+        <input type="text" #inputNamengClass="ngModel" required [(ngModel)]="person.name">
+        <hr class="line-error" [ngClass]="{
+          'valid' : inputNamengClass.valid,
+          'invalid' : inputNamengClass.invalid
+        }" />
+        <p class="message-Error" [class.invalid]="!inputNamengClass.valid">
+            El Campo es Requerido !!!
+        </p>
+        <br><br>
+        <div class="styles">
+            <div>
+                <input type="number" [(ngModel)]="box.width">
+                <input type="number" [(ngModel)]="box.height">
+                <input type="color" [(ngModel)]="box.backGround">
+            </div>
+            <div [ngStyle]="{
+              'width.px': box.width,
+              'height.px': box.height,
+              'background-color': box.backGround,
+              'display': 'block'
+            }">
+
+            </div>
+        </div>
+        <br><br>
+        <hr>
+
+    </li>
+    <li>
+        <h1>Class & Style</h1>
+        <input type="text" #inputNameStyle="ngModel" required [(ngModel)]="person.name">
+        <p class="message-Error" [class.invalid]="!inputNameStyle.valid">
+            El Campo es Requerido !!!
+        </p>
+        <br><br>
+        <label>Nombre</label>
+        <input type="text" required #inputNameStyle2="ngModel" [(ngModel)]="person.name">
+        <p [style.font-style]="inputNameStyle2.invalid ? 'italic' : 'normal'">
+            Text texto texto
+        </p>
+        <br><br>
+        <div class="twoColumns">
+            <div>
+                <input type="number" [(ngModel)]="imageWidth">
+            </div>
+            <div>
+                <img [src]="imgWorldProperties.src" [style.width.%]="imageWidth">
+            </div>
+        </div>
+        <br><br>
+        <hr>
+    </li>
+    <li>
         <h1>ngSwith</h1>
         <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
         <div [ngSwitch]="person.name | uppercase">
@@ -16,15 +95,15 @@
                 Hola !!!
             </p>
         </div>
-    </li> -->
-<!-- <li> -->
-<h1>*Galería</h1>
-<div class="productsGrid">
-    <div *ngFor="let product of products">
-        <img [src]="product.image" [alt]="product.name" [width]="productsImageProperties.width" [height]="productsImageProperties.height">
-        <h2>{{ product.name }}</h2>
-        <p>{{ product.price }}</p>
-        <!-- <div class="row">
+    </li>
+    <li>
+        <h1>*Galería</h1>
+        <div class="productsGrid">
+            <div *ngFor="let product of products">
+                <img [src]="product.image" [alt]="product.name" [width]="productsImageProperties.width" [height]="productsImageProperties.height">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.price }}</p>
+                <!-- <div class="row">
                     <div class="col-4">
 
                     </div>
@@ -36,14 +115,14 @@
                     </div>
                 </div> -->
 
-    </div>
+            </div>
 
-</div>
+        </div>
 
-<br><br>
-<hr>
-<!-- </li> -->
-<!-- <li>
+        <br><br>
+        <hr>
+    </li>
+    <li>
         <h1>*ngFor</h1>
         <button (click)="agregaNombre()">Add Name</button>
         <br><br> Nuevo Nombre :
@@ -155,6 +234,6 @@
         <h2>Hola soy {{person.name}} y tengo {{person.age} años</h2>
         <img src={{person.avatar}} width="100" />
         <hr />
-    </li> -->
+    </li>
 
-<!-- </ul> -->
+</ul>

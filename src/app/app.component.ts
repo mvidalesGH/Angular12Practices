@@ -96,6 +96,16 @@ private tempImageProperties:imageProperties = new imageProperties();
 
   name = 'Nicolas';
   newName = 'Mario';
+  imageWidth=10;
+  register={
+    name:'',
+    email:'',
+    password:''};
+  box = {
+    width: 100,
+    height:100,
+    backGround: 'red'
+  }
   age=21;
   image= 'https://www.unir.net/wp-content/uploads/2020/07/mba-tech.jpg';
   btnDisabled=true;
@@ -155,6 +165,11 @@ private tempImageProperties:imageProperties = new imageProperties();
   onKeyUp(event: Event){
     const element = event.target as HTMLInputElement;
     this.person.name= element.value;
+  }
+
+  onRegister(event: Event){
+    console.log(this.register);
+
   }
 }
 
