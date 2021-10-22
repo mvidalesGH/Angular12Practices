@@ -146,8 +146,6 @@ private tempImageProperties:imageProperties = new imageProperties();
         this.btnActivarProperties.text="Activar";
        else
        this.btnActivarProperties.text="Desactivar";
-
-
   }
 
   Enviar() {

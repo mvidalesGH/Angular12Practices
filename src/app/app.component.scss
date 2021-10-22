@@ -87,6 +87,7 @@
     transition: all linear .5s;
     &.invalid {
         opacity: 1;
+        border-color: red !important;
     }
 }
 
@@ -105,4 +106,66 @@
 .twoColumns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+// DIVS DE CONTENIDO
+.classContent {
+    // background-color: blue;
+    margin: 0;
+    padding: 0;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    border: solid 1px;
+    &.classContent * {
+        color: black;
+        margin: 0;
+        padding: 0;
+        font-size: xx-large;
+        margin-left: 10%;
+    }
+    &.classContent .input-group {
+        color: black;
+        margin: 0;
+        padding: 0;
+        font-size: xx-large;
+        margin-left: 2%;
+        display: grid;
+        grid-column: repat(1, 1fr);
+    }
+    &.classContent .input-group label {
+        font-size: large;
+        width: 80%;
+    }
+    &.classContent .input-group p {
+        font-size: medium;
+        color: white;
+        width: 80%;
+    }
+    &.classContent .input-group input {
+        font-size: large;
+        width: 80%;
+    }
+    &.classContent .input-group label {
+        font-size: large;
+        width: 90%;
+    }
+    &.classContent form {
+        color: blue;
+        margin: 0;
+        padding: 0;
+        font-size: large;
+        margin-left: 2%;
+    }
+    &.classContent .input-group-actions button {
+        font-size: large;
+        // color: red;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    ;
 }

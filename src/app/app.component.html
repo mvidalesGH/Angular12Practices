@@ -1,28 +1,33 @@
-<ul>
-    <li>
-        <h1>Formulario</h1>
-        <form (ngSubmit)="onRegister($event)" #myform="ngForm">
-            <div class=input-group>
-                <label for="name">Nombre</label>
-                <input type="text" #registername="ngModel" required name="name" id="name" [(ngModel)]="register.name">
-                <p>Mensajes de Error</p>
-            </div>
-            <div class=input-group>
-                <label for="email">Email</label>
-                <input type="email" #registeremail="ngModel" name="email" id="email" required [(ngModel)]="register.email">
-                <p>Mensajes de Error</p>
-            </div>
-            <div class=input-group>
-                <label for="password">Password</label>
-                <input type="password" #registerpassword="ngModel" name="password" id="password" required [(ngModel)]="register.password">
-                <p>Mensajes de Error</p>
-            </div>
-
+<div class='classContent'>
+    <h1>Formulario</h1>
+    <hr>
+    <form (ngSubmit)="onRegister($event)" #myform="ngForm">
+        <div class=input-group>
+            <label for="name">Nombre</label>
+            <input type="text" #registername="ngModel" required name="name" id="name" [(ngModel)]="register.name">
+            <p class="message-Error" [class.invalid]="!registername.valid">El Nombre es requerido.</p>
+        </div>
+        <div class=input-group>
+            <label for="email">Email</label>
+            <input type="email" #registeremail="ngModel" name="email" id="email" required [(ngModel)]="register.email">
+            <p class="message-Error" [class.invalid]="!registeremail.valid">El Correo es requerido.</p>
+        </div>
+        <div class=input-group>
+            <label for="password">Password</label>
+            <input type="password" #registerpassword="ngModel" name="password" id="password" required [(ngModel)]="register.password">
+            <p class="message-Error" [class.invalid]="!registerpassword.valid">Mensajes de Error</p>
+        </div>
+        <div class=input-group-actions>
             <button type="submit" [disabled]="myform.invalid">Registrar</button>
-        </form>
+        </div>
+
+    </form>
+</div>
+<ul>
+    <!-- <li>
         <br><br>
         <hr>
-    </li>
+    </li> -->
 
     <li>
         <h1>NgClass</h1>
