@@ -23,222 +23,193 @@
 
     </form>
 </div>
-<ul>
-    <!-- <li>
-        <br><br>
-        <hr>
-    </li> -->
-
-    <li>
-        <h1>NgClass</h1>
-        <input type="text" #inputNamengClass="ngModel" required [(ngModel)]="person.name">
-        <hr class="line-error" [ngClass]="{
-          'valid' : inputNamengClass.valid,
-          'invalid' : inputNamengClass.invalid
-        }" />
-        <p class="message-Error" [class.invalid]="!inputNamengClass.valid">
-            El Campo es Requerido !!!
-        </p>
-        <br><br>
-        <div class="styles">
-            <div>
-                <input type="number" [(ngModel)]="box.width">
-                <input type="number" [(ngModel)]="box.height">
-                <input type="color" [(ngModel)]="box.backGround">
-            </div>
-            <div [ngStyle]="{
-              'width.px': box.width,
-              'height.px': box.height,
-              'background-color': box.backGround,
-              'display': 'block'
-            }">
-
-            </div>
+<div class='classContent'>
+    <h1>NgClass</h1>
+    <input type="text" #inputNamengClass="ngModel" required [(ngModel)]="person.name">
+    <hr class="line-error" [ngClass]="{
+    'valid' : inputNamengClass.valid,
+    'invalid' : inputNamengClass.invalid
+  }" />
+    <p class="message-Error" [class.invalid]="!inputNamengClass.valid">
+        El Campo es Requerido !!!
+    </p>
+    <br><br>
+    <div class="styles">
+        <div>
+            <input type="number" [(ngModel)]="box.width">
+            <input type="number" [(ngModel)]="box.height">
+            <input type="color" [(ngModel)]="box.backGround">
         </div>
-        <br><br>
-        <hr>
-
-    </li>
-    <li>
-        <h1>Class & Style</h1>
-        <input type="text" #inputNameStyle="ngModel" required [(ngModel)]="person.name">
-        <p class="message-Error" [class.invalid]="!inputNameStyle.valid">
-            El Campo es Requerido !!!
-        </p>
-        <br><br>
-        <label>Nombre</label>
-        <input type="text" required #inputNameStyle2="ngModel" [(ngModel)]="person.name">
-        <p [style.font-style]="inputNameStyle2.invalid ? 'italic' : 'normal'">
-            Text texto texto
-        </p>
-        <br><br>
-        <div class="twoColumns">
-            <div>
-                <input type="number" [(ngModel)]="imageWidth">
-            </div>
-            <div>
-                <img [src]="imgWorldProperties.src" [style.width.%]="imageWidth">
-            </div>
-        </div>
-        <br><br>
-        <hr>
-    </li>
-    <li>
-        <h1>ngSwith</h1>
-        <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
-        <div [ngSwitch]="person.name | uppercase">
-            <p *ngSwitchCase="'MARIO'">
-                Hola soy Mario!!!
-            </p>
-            <p *ngSwitchCase="'JUAN'">
-                Hola soy Juan!!!
-            </p>
-            <p *ngSwitchCase="'ANA'">
-                Hola soy Ana!!!
-            </p>
-            <p *ngSwitchDefault>
-                Hola !!!
-            </p>
-        </div>
-    </li>
-    <li>
-        <h1>*Galería</h1>
-        <div class="productsGrid">
-            <div *ngFor="let product of products">
-                <img [src]="product.image" [alt]="product.name" [width]="productsImageProperties.width" [height]="productsImageProperties.height">
-                <h2>{{ product.name }}</h2>
-                <p>{{ product.price }}</p>
-                <!-- <div class="row">
-                    <div class="col-4">
-
-                    </div>
-                    <div class="col-4">
-
-                    </div>
-                    <div class="col-2">
-
-                    </div>
-                </div> -->
-
-            </div>
+        <div [ngStyle]="{
+        'width.px': box.width,
+        'height.px': box.height,
+        'background-color': box.backGround,
+        'display': 'block'
+      }">
 
         </div>
+    </div>
 
-        <br><br>
-        <hr>
-    </li>
-    <li>
-        <h1>*ngFor</h1>
-        <button (click)="agregaNombre()">Add Name</button>
-        <br><br> Nuevo Nombre :
-        <input type="text" #inputNewName=ngModel required [(ngModel)]="newName">
-        <p *ngIf="!inputNewName.valid">
-            El nombre es requerido !!!
-        </p>
-        <br><br>
-        <p *ngIf="namePersons.length===0">
-            La lista esta Vacía!!!!
-        </p>
-        <ul>
-            <li *ngFor="let name of namePersons;index as i">
-                {{ name }} posición {{ i }} <button (click)="eliminarNombre(i)">Delete Name</button>
-            </li>
-        </ul>
-        <br><br>
-        <hr>
-    </li>
-    <li>
-        <h1>*ngIf</h1>
-        <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
-        <input type="number" #ageInput="ngModel" required min="10" max="18" [(ngModel)]="person.age">
-        <p *ngIf="!nameInput.valid">
-            El nombre es requerido !!!
-        </p>
-        <p *ngIf="!ageInput.valid;">
-            La edad es es requerido !!!
-        </p>
-        <p *ngIf="person.name==='mario'; else otronOmbre">
-            Hola soy Mario !!!
-        </p>
-        <ng-template #otronOmbre>
-            Hola, No soy Mario !!!
-        </ng-template>
-        <br><br>
-        <hr>
-    </li>
-    <li>
-        <h1>NgModel</h1>
-        <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
-        <p> Name= {{ person.name }}</p>
-        <p> Valid= {{ nameInput.valid }}</p>
-        <br>
-        <input type="number" #ageInput="ngModel" required min="10" max="18" [(ngModel)]="person.age">
-        <p> Name= {{ person.age }}</p>
-        <p> Valid= {{ ageInput.valid }}</p>
-
-        <hr>
-    </li>
-    <li>
-        <h1>Others Events</h1>
-        <div class="box" (scroll)="onScroll($event)">
-            Lorem ipsum dolor sit amet consectetur adipiscing, elit vitae porttitor ultricies facilisi natoque, vehicula lacinia potenti lacus curabitur. Sed habitasse nascetur nulla facilisi vel lectus, aenean diam phasellus potenti nunc vitae, purus suscipit et
-            parturient ultrices. Sociis fermentum dis molestie auctor dictumst ac montes, himenaeos viverra fusce convallis nostra.
+</div>
+<div class='classContent'>
+    <h1>Class & Style</h1>
+    <input type="text" #inputNameStyle="ngModel" required [(ngModel)]="person.name">
+    <p class="message-Error" [class.invalid]="!inputNameStyle.valid">
+        El Campo es Requerido !!!
+    </p>
+    <br><br>
+    <label>Nombre</label>
+    <input type="text" required #inputNameStyle2="ngModel" [(ngModel)]="person.name">
+    <p [style.font-style]="inputNameStyle2.invalid ? 'italic' : 'normal'">
+        Text texto texto
+    </p>
+    <br><br>
+    <div class="twoColumns">
+        <div>
+            <input type="number" [(ngModel)]="imageWidth">
         </div>
-        Posición del Scroll = {{ ScrollTop }}
-        <br>
-        <br><br>
-        <input type="text" value="{{ person.name }}" (keyup)="onKeyUp($event)"> Nombre = {{ person.name }}
-        <br>
-        <hr>
+        <div>
+            <img [src]="imgWorldProperties.src" [style.width.%]="imageWidth">
+        </div>
+    </div>
+    <br><br>
+    <hr>
+</div>
+<div class='classContent'>
+    <h1>ngSwith</h1>
+    <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
+    <div [ngSwitch]="person.name | uppercase">
+        <p *ngSwitchCase="'MARIO'">
+            Hola soy Mario!!!
+        </p>
+        <p *ngSwitchCase="'JUAN'">
+            Hola soy Juan!!!
+        </p>
+        <p *ngSwitchCase="'ANA'">
+            Hola soy Ana!!!
+        </p>
+        <p *ngSwitchDefault>
+            Hola !!!
+        </p>
+    </div>
 
-    </li>
+</div>
+<div class='classContent'>
+    <h1>*Galería</h1>
+    <div class="productsGrid">
+        <div *ngFor="let product of products">
+            <img [src]="product.image" [alt]="product.name" [width]="productsImageProperties.width" [height]="productsImageProperties.height">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.price }}</p>
+        </div>
+    </div>
+</div>
+<div class='classContent'>
+    <h1>*ngFor</h1>
+    <button (click)="agregaNombre()">Add Name</button>
+    <br><br> Nuevo Nombre :
+    <input type="text" #inputNewName=ngModel required [(ngModel)]="newName">
+    <p *ngIf="!inputNewName.valid">
+        El nombre es requerido !!!
+    </p>
+    <br><br>
+    <p *ngIf="namePersons.length===0">
+        La lista esta Vacía!!!!
+    </p>
+    <ul>
+        <li *ngFor="let name of namePersons;index as i">
+            {{ name }} posición {{ i }} <button (click)="eliminarNombre(i)">Delete Name</button>
+        </li>
+    </ul>
+</div>
+<div class='classContent'>
+    <h1>*ngIf</h1>
+    <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
+    <input type="number" #ageInput="ngModel" required min="10" max="18" [(ngModel)]="person.age">
+    <p *ngIf="!nameInput.valid">
+        El nombre es requerido !!!
+    </p>
+    <p *ngIf="!ageInput.valid;">
+        La edad es es requerido !!!
+    </p>
+    <p *ngIf="person.name==='mario'; else otronOmbre">
+        Hola soy Mario !!!
+    </p>
+    <ng-template #otronOmbre>
+        Hola, No soy Mario !!!
+    </ng-template>
+</div>
+<div class='classContent'>
+    <h1>NgModel</h1>
+    <input type="text" #nameInput="ngModel" required [(ngModel)]="person.name">
+    <p> Name= {{ person.name }}</p>
+    <p> Valid= {{ nameInput.valid }}</p>
+    <br>
+    <input type="number" #ageInput="ngModel" required min="10" max="18" [(ngModel)]="person.age">
+    <p> Name= {{ person.age }}</p>
+    <p> Valid= {{ ageInput.valid }}</p>
 
-    <li>
-        <h1>Event Handling</h1>
-        <button type="button" (click)="Enviar()" [disabled]="btnEnviarProperties.disabled">{{btnEnviarProperties.text}}</button>
-        <button type="button" (click)="Activar()">{{btnActivarProperties.text}}</button>
+</div>
+<div class='classContent'>
+    <h1>Others Events</h1>
+    <div class="box" (scroll)="onScroll($event)">
+        Lorem ipsum dolor sit amet consectetur adipiscing, elit vitae porttitor ultricies facilisi natoque, vehicula lacinia potenti lacus curabitur. Sed habitasse nascetur nulla facilisi vel lectus, aenean diam phasellus potenti nunc vitae, purus suscipit et
+        parturient ultrices. Sociis fermentum dis molestie auctor dictumst ac montes, himenaeos viverra fusce convallis nostra.
+    </div>
+    Posición del Scroll = {{ ScrollTop }}
 
-        <br>
-        <button type="button" (click)="increaseAge()">{{btnIncrementarEdadProperties.text}}</button>
-        <h2>Edad = {{person.age}}</h2>
+</div>
+<div class='classContent'>
 
-        <progress max="100" value="{{person.age}}"></progress>
-        <hr />
-    </li>
-    <li>
-        <h1>Property Binding</h1>
-        <h1>Propiedades !!!!!</h1>
-        <button [disabled]='btnDisabled'>Enviar</button>
-        <br>
-        <input type="text" [value]="name">
-        <br>
-        <progress max="100" [value]="imgWorldProperties.uploadPercentage"></progress>
-        <br>
-        <img [src]="imgWorldProperties.src" [width]="imgWorldProperties.width">
-        <br>
-        <input type="text" [value]="person.name">
-        <br>
-        <progress max="100" [value]="imgAvatarProperties.uploadPercentage"></progress>
-        <br>
-        <img [src]="imgAvatarProperties.src" [width]="imgAvatarProperties.width">
-        <br>
+    <input type="text" value="{{ person.name }}" (keyup)="onKeyUp($event)"> Nombre = {{ person.name }}
 
-        <hr />
+</div>
+<div class='classContent'></div>
 
-    </li>
-    <li>
-        <h1>String Interpolation</h1>
-        <h2>{{'Hola Mundo !!!'.repeat(5)}}</h2>
+<div class='classContent'>
+    <h1>Event Handling</h1>
+    <button type="button" (click)="Enviar()" [disabled]="btnEnviarProperties.disabled">{{btnEnviarProperties.text}}</button>
+    <button type="button" (click)="Activar()">{{btnActivarProperties.text}}</button>
 
-        <h2>3 + 3 = {{ 3 + 3 }}</h2>
+    <br>
+    <button type="button" (click)="increaseAge()">{{btnIncrementarEdadProperties.text}}</button>
+    <h2>Edad = {{person.age}}</h2>
 
-        <h2>Hola soy {{name}} y tengo {{age}} años</h2>
-        <img src={{image}} width="100" />
-        <hr />
+    <progress max="100" value="{{person.age}}"></progress>
 
-        <h2>Hola soy {{person.name}} y tengo {{person.age} años</h2>
-        <img src={{person.avatar}} width="100" />
-        <hr />
-    </li>
+</div>
+<div class='classContent'>
 
-</ul>
+    <h1>Property Binding</h1>
+    <h1>Propiedades !!!!!</h1>
+    <button [disabled]='btnDisabled'>Enviar</button>
+    <br>
+    <input type="text" [value]="name">
+    <br>
+    <progress max="100" [value]="imgWorldProperties.uploadPercentage"></progress>
+    <br>
+    <img [src]="imgWorldProperties.src" [width]="imgWorldProperties.width">
+    <br>
+    <input type="text" [value]="person.name">
+    <br>
+    <progress max="100" [value]="imgAvatarProperties.uploadPercentage"></progress>
+    <br>
+    <img [src]="imgAvatarProperties.src" [width]="imgAvatarProperties.width">
+    <br>
+
+</div>
+<div class='classContent'>
+
+    <h1>String Interpolation</h1>
+    <h2>{{'Hola Mundo !!!'.repeat(5)}}</h2>
+
+    <h2>3 + 3 = {{ 3 + 3 }}</h2>
+
+    <h2>Hola soy {{name}} y tengo {{age}} años</h2>
+    <img src={{image}} width="100" />
+    <hr />
+
+    <h2>Hola soy {{person.name}} y tengo {{person.age} años</h2>
+    <img src={{person.avatar}} width="100" />
+
+</div>
