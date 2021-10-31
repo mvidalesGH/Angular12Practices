@@ -1,19 +1,21 @@
 <div [ngSwitch]="appLogged">
     <!-- FormLogin-->
-    <div *ngSwitch="appLogged" class="form">
-        USer Logged !!!!
+
+    <div *ngSwitchCase="1" class="form">
+        <app-img [imgsource]="config.defaultImage" (imageLoadedEvent)="onImageLoaded($event)">
+        </app-img>
     </div>
     <!-- FormLogin-->
-    <div *ngSwitchDefault class="form">
+    <div *ngSwitchCase="0" class="form">
         <div class="form-toggle"></div>
         <div class="form-panel one">
             <div class="form-header-languages" style="height: 80px;">
                 <button type="button" (click)="selectLang('ESP')" style="float: left;">
-                <img src=".\assets\img\mexico.png" width="50">
+                <img src="{{ appLanguage.imageLanguages.espLngImage }}" width="50">
            </button>
 
                 <button type="button" (click)="selectLang('ENG')" style="float: right;">
-              <img src=".\assets\img\usa.png" width="50">
+              <img src="{{ appLanguage.imageLanguages.engLngImage }}" width="50">
            </button>
 
             </div>
@@ -73,5 +75,12 @@
                 </form>
             </div>
         </div>
+
+
+
+
+    </div>
+    <div *ngSwitchDefault class="form">
+        Default !!!!
     </div>
 </div>

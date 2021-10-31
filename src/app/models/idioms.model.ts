@@ -1,12 +1,15 @@
 export interface ILanguage{
   name:string;
   login:loginLanguage;
+  imageLanguages:loginLanguageImages;
+
 };
 
 export function getLanguageConfiguration(lng: string):loginLanguage {
 
   const listLanguages = [{
     lang: "ESP",
+    img: '.\\assets\\img\\mexico.png',
     title:"Cuenta de Acceso",
     userLabel:"Usuario",
     passwordLabel:"Contraseña",
@@ -20,6 +23,7 @@ export function getLanguageConfiguration(lng: string):loginLanguage {
   },
   {
     lang: "ENG",
+    img: '.\\assets\\img\\usa.png',
     title:"ACCOUNT LOGIN",
     userLabel:"USERNAME",
     passwordLabel:"PASSWORD",
@@ -34,9 +38,28 @@ export function getLanguageConfiguration(lng: string):loginLanguage {
  return listLanguages.filter(x => x.lang===lng)[0];
 }
 
+export function getLanguageImagConfiguration():loginLanguageImages {
+
+  const listLanguages = {
+    espLngImage: '.\\assets\\img\\mexico.png',
+    engLngImage: '.\\assets\\img\\usa.png'
+
+  }
+ return listLanguages;
+}
+
+class loginLanguageImages{
+  espLngImage: string;
+  engLngImage: string;
+  constructor(){
+    this.espLngImage='.\\assets\\img\\mexico.png';
+    this.engLngImage='.\\assets\\img\\usa.png';
+  }
+}
 
 class loginLanguage{
   lang?:string;
+  img?:string;
   title:string;
   userLabel:string;
   passwordLabel:string;
