@@ -1,0 +1,30 @@
+.productItem app-img {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.productItem .row {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+}
+
+.productItem label:first {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 0px;
+    padding-top: 10px;
+    //padding-bottom: 2px;
+}
+
+.productItem label {
+    width: 100%;
+    text-align: center;
+}
+
+.productItem label:parent {
+    padding: 0px;
+}

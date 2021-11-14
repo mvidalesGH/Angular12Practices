@@ -1,9 +1,20 @@
 <div [ngSwitch]="appLogged">
-    <!-- FormLogin-->
-
     <div *ngSwitchCase="1" class="form">
-        <app-img [imgsource]="config.defaultImage" (imageLoadedEvent)="onImageLoaded($event)">
-        </app-img>
+        <nav>
+            <app-main-header [_headerInfo]="storeData.headerData"></app-main-header>
+        </nav>
+        <section>
+            <article>
+                <app-store></app-store>
+            </article>
+        </section>
+        <!-- <aside>
+            <app-main-aside></app-main-aside>
+        </aside> -->
+        <footer>
+            <app-main-footer [_footerInfo]="storeData.footerData"></app-main-footer>
+        </footer>
+
     </div>
     <!-- FormLogin-->
     <div *ngSwitchCase="0" class="form">
@@ -23,7 +34,7 @@
                 <h1>{{appLanguage.login.title}}</h1>
             </div>
             <div class="form-content">
-                <form ng-submit="doLogin()">
+                <form ng-submit="doLogin();">
                     <div class="form-group">
                         <label for="username">{{appLanguage.login.userLabel}}</label>
                         <input id="username" type="text" name="username" required="required" />
@@ -39,7 +50,7 @@
                         <a class="form-recovery" href="#">{{appLanguage.login.forgotPasswordLabel}}</a>
                     </div>
                     <div class="form-group">
-                        <button type="submit">{{appLanguage.login.logInButtonLabel}}</button>
+                        <button type="button" (click)="doLogin();" id="submit" value="Submit">{{appLanguage.login.logInButtonLabel}}</button>
                     </div>
                 </form>
             </div>

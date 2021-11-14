@@ -9,18 +9,30 @@ import { ILanguage , getLanguageConfiguration, getLanguageImagConfiguration } fr
 
 export class AppComponent implements OnInit {
   title: any;
-  constructor() {
+ constructor() {
+  this.appTitle='Hola !!!';
+  this.storeData = {
+    headerData:{
+      img:'',
+      title:'Titulo Principal de la Pantalla',
+      subTitle:'SubTitulo'
+    },
+    footerData:{
+      seccion1:"Seccion 1",
+      seccion2:"Seccion 2",
+      seccion3:"Seccion 3"
+    }
+  }
+ }
+
+  ngOnInit() {
     this.config = {
       language: {
         appLanguage: "ENG"
       },
-       defaultImage :   ''
-    }
-   }
-
-  ngOnInit() {
-    }
-
+      defaultImage : ''
+    };
+  }
     appLogged:number = 1;
     language: string='ENG';
     appLanguage: ILanguage = {
@@ -28,12 +40,26 @@ export class AppComponent implements OnInit {
       login: getLanguageConfiguration(this.language),
       imageLanguages: getLanguageImagConfiguration()
     };
-    config: {
+    appTitle: string;
+    config?: {
       language:{
         appLanguage: string
       }
       defaultImage: string
     };
+    storeData:{
+      headerData:{
+        img:string,
+        title:string,
+        subTitle:string
+      },
+      footerData:{
+        seccion1:string,
+        seccion2:string,
+        seccion3:string,
+      }
+    };
+
     selectLang(selectedLng:string){
       console.log(selectedLng);
       this.language=selectedLng;
@@ -42,13 +68,8 @@ export class AppComponent implements OnInit {
         login: getLanguageConfiguration(this.language),
         imageLanguages: getLanguageImagConfiguration()
       }
-    }
+    };
     doLogin(){
       this.appLogged=1;
-    }
-
-    onImageLoaded(loaded:boolean){
-      console.log('Log Padre !!!  ', loaded);
-
     }
 }

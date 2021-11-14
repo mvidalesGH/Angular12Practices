@@ -34,6 +34,8 @@ body {
     box-sizing: border-box;
     // margin: 100px auto 10px;
     overflow: hidden;
+    background: #dadaf5;
+    background: linear-gradient(29deg, rgba(218, 218, 245, 0.6418942577) 7%, rgba(18, 77, 200, 0.3253676471) 33%, rgba(16, 196, 232, 0.3169642857) 59%);
 }
 
 // CIRCULO Cerrar Pantalla de registro
@@ -364,3 +366,55 @@ body {
 //         background-color: #cbd0ec;
 //}
 //}
+nav,
+h1,
+section {
+    padding: 20px;
+}
+
+nav {
+    padding: 0px;
+    padding-bottom: 60px;
+}
+
+footer,
+nav {
+    padding: 0;
+}
+
+aside,
+article {
+    padding: 1px;
+}
+
+h1 {
+    width: 100%;
+    // background-color: gray;
+}
+
+section {
+    width: 100%;
+    float: right;
+    display: inline;
+}
+
+aside {
+    width: 20%;
+    float: right;
+    display: inline;
+}
+
+nav {
+    width: 100%;
+    // background-color: gray;
+    clear: both;
+}
+
+footer {
+    width: 100%;
+    // background-color: gray;
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    // height: 40px;
+}

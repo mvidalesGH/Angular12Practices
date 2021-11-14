@@ -1,0 +1,21 @@
+<div class="productItem">
+    <div class="row">
+        <div class="col-12">
+            <app-img [imgsource]="product.image" (imageLoadedEvent)="onImageLoaded($event)"></app-img>
+        </div>
+    </div>
+    <div class="row productInfo">
+        <div class="col-12">
+            <label>{{ product.name}}</label></div>
+    </div>
+    <div class="row productInfo">
+        <div class="col-12">
+            <label>{{ product.description}}</label>
+        </div>
+    </div>
+    <div class="row productInfo">
+        <div class="col-12">
+            <label>{{ product.price | currency }}</label>
+        </div>
+    </div>
+</div>
